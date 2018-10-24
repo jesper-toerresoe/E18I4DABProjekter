@@ -62,7 +62,7 @@
     <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Script1.sql" />
+    <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\course.sql" />
