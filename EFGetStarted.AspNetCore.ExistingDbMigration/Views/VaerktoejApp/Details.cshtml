@@ -1,0 +1,54 @@
+﻿@model EFGetStarted.AspNetCore.ExistingDbMigration.Models.Vaerktoej
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vaerktoej</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VTAnskaffet)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VTAnskaffet)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VTFabrikat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VTFabrikat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VTModel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VTModel)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VTSerienr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VTSerienr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VTType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VTType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LiggerIvtkNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LiggerIvtkNavigation.VTKId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.VTId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

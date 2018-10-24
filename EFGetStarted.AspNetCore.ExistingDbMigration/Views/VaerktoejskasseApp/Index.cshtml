@@ -1,0 +1,65 @@
+﻿@model IEnumerable<EFGetStarted.AspNetCore.ExistingDbMigration.Models.Vaerktoejskasse>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VTKAnskaffet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VTKFabrikat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VTKModel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VTKSerienummer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VTKFarve)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EjesAfNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VTKAnskaffet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VTKFabrikat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VTKModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VTKSerienummer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VTKFarve)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EjesAfNavigation.HVEfternavn)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VTKId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.VTKId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VTKId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

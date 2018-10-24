@@ -1,0 +1,65 @@
+﻿@model IEnumerable<EFGetStarted.AspNetCore.ExistingDb.Models.Værktøj>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Anskaffet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fabrikat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Serienr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LiggerIvtkNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anskaffet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fabrikat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Serienr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LiggerIvtkNavigation.VkasseId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VærktøjsId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.VærktøjsId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VærktøjsId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,54 @@
+﻿@model EFGetStarted.AspNetCore.ExistingDbMigration.Models.Vaerktoejskasse
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vaerktoejskasse</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VTKAnskaffet)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VTKAnskaffet)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VTKFabrikat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VTKFabrikat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VTKModel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VTKModel)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VTKSerienummer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VTKSerienummer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VTKFarve)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VTKFarve)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EjesAfNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EjesAfNavigation.HVEfternavn)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.VTKId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

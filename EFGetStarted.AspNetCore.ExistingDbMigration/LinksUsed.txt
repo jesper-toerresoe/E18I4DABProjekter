@@ -1,0 +1,16 @@
+﻿https://docs.microsoft.com/da-dk/ef/core/get-started/aspnetcore/existing-db //Tutorial to follow
+https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/powershell //Setting up EF Core tools
+* Install-Package Microsoft.EntityFrameworkCore.Tools
+* Update-Package Microsoft.EntityFrameworkCore.Tools
+https://docs.microsoft.com/da-dk/ef/core/miscellaneous/connection-strings //Connection String Control
+https://stackoverflow.com/questions/42521722/how-to-stop-self-referencing-loop-in-net-core-web-api?rq=1 //Circular references
+
+The follwing lines are Connection String uses i scaffolding-dbcontext and in a connection:
+cmdlet: Scaffold-DbContext "Server=(localdb)\ProjectsV13;Database=CraftManDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+Examples:
+Scaffold-DbContext "Server=(localdb)\ProjectsV13;Database=CraftManDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+Scaffold-DbContext "Server=(localdb)\ProjectsV13;Database=Database3;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models1
+
+
+Data Source=(localdb)\ProjectsV13;Initial Catalog=Database3;Integrated Security=True;Pooling=False;Connect Timeout=30
+Connection: Data Source=(localdb)\ProjectsV13;Initial Catalog=CraftManDB;Integrated Security=True;Pooling=False;Connect Timeout=30

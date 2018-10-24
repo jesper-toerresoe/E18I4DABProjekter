@@ -1,0 +1,54 @@
+﻿@model EFGetStarted.AspNetCore.ExistingDb.Models.Værktøjskasse
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Værktøjskasse</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Anskaffet)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Anskaffet)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fabrikat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fabrikat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Serienummer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Serienummer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Farve)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Farve)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EjesAfNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EjesAfNavigation.Efternavn)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.VkasseId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

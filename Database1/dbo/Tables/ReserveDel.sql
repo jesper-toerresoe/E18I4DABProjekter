@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[ReserveDel] (
+    [ID2] BIGINT IDENTITY (1, 1) NOT NULL,
+    [ID1] BIGINT NULL,
+    [MærkeReservedel] NVARCHAR(MAX) NULL, 
+    [Type] NVARCHAR(MAX) NULL, 
+    CONSTRAINT [pk_ReserveDel] PRIMARY KEY CLUSTERED ([ID2] ASC),
+    CONSTRAINT [fk_ReserveDel] FOREIGN KEY ([ID1]) REFERENCES [dbo].[Cykel] ([ID1]) ON UPDATE CASCADE
+);
+

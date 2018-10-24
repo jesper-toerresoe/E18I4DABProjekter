@@ -1,0 +1,45 @@
+﻿@model EFGetStarted.AspNetCore.ExistingDbMigration.Models.Haandvaerker
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Haandvaerker</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HVAnsaettelsedato)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HVAnsaettelsedato)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HVEfternavn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HVEfternavn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HVFagomraade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HVFagomraade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HVFornavn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HVFornavn)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="HaandvaerkerId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

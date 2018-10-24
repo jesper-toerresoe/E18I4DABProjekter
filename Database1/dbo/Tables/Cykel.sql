@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Cykel] (
+    [ID1] BIGINT IDENTITY (1, 1) NOT NULL,
+    [Mærke] NVARCHAR(MAX) NOT NULL, 
+    [Serienummer] NCHAR(15) NULL, 
+    CONSTRAINT [pk_Cykel] PRIMARY KEY CLUSTERED ([ID1] ASC)
+);
+

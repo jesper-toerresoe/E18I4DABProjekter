@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="b5722095-48d3-4d9a-9e47-2cec06121118" ChangeDateTime="10/02/2018 07:47:18">
+    <Property Name="ElementName" Value="[dbo].[Værktøj].[Værktøjskasse]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Værktøj]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LiggerIVTK" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="083a6279-454a-4f7b-9322-9b4e53f3a1b9" ChangeDateTime="10/02/2018 07:48:06">
+    <Property Name="ElementName" Value="[dbo].[Værktøjskasse].[Håndværker]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Værktøjskasse]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="EjesAf" />
+  </Operation>
+</Operations>
