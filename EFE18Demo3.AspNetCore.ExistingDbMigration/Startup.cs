@@ -8,11 +8,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using EFE18Demo2.AspNetCore.ExistingDbMigration.Models;
 
-namespace EFE18Demo2.AspNetCore.ExistingDbMigration
-{ 
+namespace EFE18Demo3.AspNetCore.ExistingDbMigration
+{
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -32,14 +30,8 @@ namespace EFE18Demo2.AspNetCore.ExistingDbMigration
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-        // Here yuo must remember to configure the DBContext for Dependency Injection)
-            services.AddDbContext<CraftManDBContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("CraftManDB")));
 
-
-            services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-            //Setting up the JSON formatter NewtonSoft to allow Circular references
-            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

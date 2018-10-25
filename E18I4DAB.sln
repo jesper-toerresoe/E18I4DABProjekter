@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFGetStarted.AspNetCore.Exi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D5DB56EE-098A-45FC-8E77-910063708049}"
 	ProjectSection(SolutionItems) = preProject
+		EFGetStarted.AspNetCore.ExistingDb\LinksUsed.txt = EFGetStarted.AspNetCore.ExistingDb\LinksUsed.txt
+		OmControllers.html = OmControllers.html
 		Opsatningafprojektogdb.html = Opsatningafprojektogdb.html
 	EndProjectSection
 EndProject
@@ -21,6 +23,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFE18Demo.AspNetCore.ExistingDbMigration", "EFE18Dema.AspNetCore.ExistingDbMigration\EFE18Demo.AspNetCore.ExistingDbMigration.csproj", "{09BBDEAC-7D08-458E-AD92-31B4F31E6DD9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFE18Demo2.AspNetCore.ExistingDbMigration", "EFE18Demo2.AspNetCore.ExistingDbMigration\EFE18Demo2.AspNetCore.ExistingDbMigration.csproj", "{11E2F8A7-04A8-4847-9CA9-451133F81A85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFE18Demo4.AspNetCore.ExistingDbMigration", "EFE18Demo4.AspNetCore.ExistingDbMigration\EFE18Demo4.AspNetCore.ExistingDbMigration.csproj", "{9D7AEE1D-9910-48FA-A5DA-A10416D7F38A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +66,10 @@ Global
 		{11E2F8A7-04A8-4847-9CA9-451133F81A85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11E2F8A7-04A8-4847-9CA9-451133F81A85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11E2F8A7-04A8-4847-9CA9-451133F81A85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D7AEE1D-9910-48FA-A5DA-A10416D7F38A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D7AEE1D-9910-48FA-A5DA-A10416D7F38A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D7AEE1D-9910-48FA-A5DA-A10416D7F38A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D7AEE1D-9910-48FA-A5DA-A10416D7F38A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,6 +3,7 @@ https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/powershell //Setting 
 * Install-Package Microsoft.EntityFrameworkCore.Tools
 * Update-Package Microsoft.EntityFrameworkCore.Tools
 https://docs.microsoft.com/da-dk/ef/core/miscellaneous/connection-strings //Connection String Control
+
 https://stackoverflow.com/questions/42521722/how-to-stop-self-referencing-loop-in-net-core-web-api?rq=1 //Circular references
 
 The follwing lines are Connection String uses i scaffolding-dbcontext and in a connection:
