@@ -1,0 +1,53 @@
+﻿@model IEnumerable<EFE18Demo2.AspNetCore.ExistingDbMigration.Models.Håndværker>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ansættelsedato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Efternavn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fagområde)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fornavn)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ansættelsedato)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Efternavn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fagområde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fornavn)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.HåndværkerId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.HåndværkerId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.HåndværkerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
