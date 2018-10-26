@@ -1,0 +1,65 @@
+﻿@model IEnumerable<EFE18Demo4.AspNetCore.ExistingDbMigration.Models.Vaerktoej>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vtanskaffet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vtfabrikat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vtmodel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vtserienr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vttype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vtk)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vtanskaffet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vtfabrikat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vtmodel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vtserienr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vttype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vtk.VkasseId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VaerktoejsId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.VaerktoejsId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VaerktoejsId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

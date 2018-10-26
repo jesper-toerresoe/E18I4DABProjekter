@@ -1,0 +1,54 @@
+﻿@model EFE18Demo4.AspNetCore.ExistingDbMigration.Models.Vaerktoejskasse
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vaerktoejskasse</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vtkanskaffet)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Vtkanskaffet)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Vtkfabrikat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Vtkfabrikat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Vtkmodel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Vtkmodel)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Vtkserienummer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Vtkserienummer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Vtkfarve)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Vtkfarve)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Haandvaerker)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Haandvaerker.Efternavn)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.VkasseId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

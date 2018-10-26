@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Models
 {
-    public partial class Værktøj
+    public partial class Vaerktoej
     {
-        public long VærktøjsId { get; set; }
+        public long VaerktoejsId { get; set; }
         public DateTime Vtanskaffet { get; set; }
         public string Vtfabrikat { get; set; }
         public string Vtmodel { get; set; }
@@ -13,6 +13,6 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Models
         public string Vttype { get; set; }
         public int? Vtkid { get; set; }
 
-        public Værktøjskasse Vtk { get; set; }
+        public Vaerktoejskasse Vtk { get; set; }
     }
 }

@@ -1,0 +1,57 @@
+﻿@model EFE18Demo4.AspNetCore.ExistingDbMigration.Models.Vaerktoejskasse
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Vaerktoejskasse</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Vtkanskaffet" class="control-label"></label>
+                <input asp-for="Vtkanskaffet" class="form-control" />
+                <span asp-validation-for="Vtkanskaffet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vtkfabrikat" class="control-label"></label>
+                <input asp-for="Vtkfabrikat" class="form-control" />
+                <span asp-validation-for="Vtkfabrikat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HaandvaerkerId" class="control-label"></label>
+                <select asp-for="HaandvaerkerId" class ="form-control" asp-items="ViewBag.HaandvaerkerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vtkmodel" class="control-label"></label>
+                <input asp-for="Vtkmodel" class="form-control" />
+                <span asp-validation-for="Vtkmodel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vtkserienummer" class="control-label"></label>
+                <input asp-for="Vtkserienummer" class="form-control" />
+                <span asp-validation-for="Vtkserienummer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vtkfarve" class="control-label"></label>
+                <input asp-for="Vtkfarve" class="form-control" />
+                <span asp-validation-for="Vtkfarve" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

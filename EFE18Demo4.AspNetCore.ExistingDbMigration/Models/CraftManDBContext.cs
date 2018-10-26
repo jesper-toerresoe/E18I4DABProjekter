@@ -15,39 +15,39 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Models
         {
         }
 
-        public virtual DbSet<Håndværker> Håndværker { get; set; }
-        public virtual DbSet<Værktøj> Værktøj { get; set; }
-        public virtual DbSet<Værktøjskasse> Værktøjskasse { get; set; }
+        public virtual DbSet<Haandvaerker> Haandvaerker { get; set; }
+        public virtual DbSet<Vaerktoej> Vaerktoej { get; set; }
+        public virtual DbSet<Vaerktoejskasse> Vaerktoejskasse { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=(localdb)\\ProjectsV13;Database=CraftManDB;Trusted_Connection=True;");
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//                optionsBuilder.UseSqlServer("Server=(localdb)\\ProjectsV13;Database=CraftManDB;Trusted_Connection=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Håndværker>(entity =>
+            modelBuilder.Entity<Haandvaerker>(entity =>
             {
-                entity.Property(e => e.Ansættelsedato).HasColumnType("date");
+                entity.Property(e => e.Ansaettelsedato).HasColumnType("date");
 
                 entity.Property(e => e.Efternavn)
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Fagområde).HasMaxLength(50);
+                entity.Property(e => e.Fagomraade).HasMaxLength(50);
 
                 entity.Property(e => e.Fornavn)
                     .IsRequired()
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<Værktøj>(entity =>
+            modelBuilder.Entity<Vaerktoej>(entity =>
             {
-                entity.HasKey(e => e.VærktøjsId);
+                entity.HasKey(e => e.VaerktoejsId);
 
                 entity.Property(e => e.Vtanskaffet)
                     .HasColumnName("VTAnskaffet")
@@ -70,18 +70,18 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Models
                     .HasMaxLength(50);
 
                 entity.HasOne(d => d.Vtk)
-                    .WithMany(p => p.Værktøj)
+                    .WithMany(p => p.Vaerktoej)
                     .HasForeignKey(d => d.Vtkid)
                     .HasConstraintName("FK_Værktøj_Værktøjskasse");
             });
 
-            modelBuilder.Entity<Værktøjskasse>(entity =>
+            modelBuilder.Entity<Vaerktoejskasse>(entity =>
             {
                 entity.HasKey(e => e.VkasseId);
 
                 entity.Property(e => e.VkasseId).HasColumnName("VKasseId");
 
-                entity.Property(e => e.HåndværkerId).HasColumnName("HåndværkerID");
+                entity.Property(e => e.HaandvaerkerId).HasColumnName("HåndværkerID");
 
                 entity.Property(e => e.Vtkanskaffet)
                     .HasColumnName("VTKAnskaffet")
@@ -101,9 +101,9 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Models
                     .HasColumnName("VTKSerienummer")
                     .HasMaxLength(50);
 
-                entity.HasOne(d => d.Håndværker)
-                    .WithMany(p => p.Værktøjskasse)
-                    .HasForeignKey(d => d.HåndværkerId)
+                entity.HasOne(d => d.Haandvaerker)
+                    .WithMany(p => p.Vaerktoejskasse)
+                    .HasForeignKey(d => d.HaandvaerkerId)
                     .HasConstraintName("FK_Værktøjskasse_ToHåndværker");
             });
         }

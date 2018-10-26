@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Models
 {
-    public partial class Håndværker
+    public partial class Haandvaerker
     {
-        public Håndværker()
+        public Haandvaerker()
         {
-            Værktøjskasse = new HashSet<Værktøjskasse>();
+            Vaerktoejskasse = new HashSet<Vaerktoejskasse>();
         }
 
-        public int HåndværkerId { get; set; }
-        public DateTime Ansættelsedato { get; set; }
+        public int HaandvaerkerId { get; set; }
+        public DateTime Ansaettelsedato { get; set; }
         public string Efternavn { get; set; }
-        public string Fagområde { get; set; }
+        public string Fagomraade { get; set; }
         public string Fornavn { get; set; }
 
-        public ICollection<Værktøjskasse> Værktøjskasse { get; set; }
+        public ICollection<Vaerktoejskasse> Vaerktoejskasse { get; set; }
     }
 }

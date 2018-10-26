@@ -1,21 +1,22 @@
-﻿@model EFE18Demo4.AspNetCore.ExistingDbMigration.Models.Håndværker
+﻿@model EFE18Demo4.AspNetCore.ExistingDbMigration.Models.Haandvaerker
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
-<h2>Create</h2>
+<h2>Edit</h2>
 
-<h4>Håndværker</h4>
+<h4>Haandvaerker</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="HaandvaerkerId" />
             <div class="form-group">
-                <label asp-for="Ansættelsedato" class="control-label"></label>
-                <input asp-for="Ansættelsedato" class="form-control" />
-                <span asp-validation-for="Ansættelsedato" class="text-danger"></span>
+                <label asp-for="Ansaettelsedato" class="control-label"></label>
+                <input asp-for="Ansaettelsedato" class="form-control" />
+                <span asp-validation-for="Ansaettelsedato" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Efternavn" class="control-label"></label>
@@ -23,9 +24,9 @@
                 <span asp-validation-for="Efternavn" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Fagområde" class="control-label"></label>
-                <input asp-for="Fagområde" class="form-control" />
-                <span asp-validation-for="Fagområde" class="text-danger"></span>
+                <label asp-for="Fagomraade" class="control-label"></label>
+                <input asp-for="Fagomraade" class="form-control" />
+                <span asp-validation-for="Fagomraade" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Fornavn" class="control-label"></label>
@@ -33,7 +34,7 @@
                 <span asp-validation-for="Fornavn" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </form>
     </div>

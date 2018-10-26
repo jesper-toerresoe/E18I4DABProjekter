@@ -34,7 +34,7 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration
 
             // Here yuo must remember to configure the DBContext for Dependency Injection)
             services.AddDbContext<CraftManDBContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("CraftManDB")));
+                    options.UseSqlServer(Configuration.GetConnectionString("CraftManDBMigration")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

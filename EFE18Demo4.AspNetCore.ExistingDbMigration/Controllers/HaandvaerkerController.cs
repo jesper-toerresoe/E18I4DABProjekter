@@ -11,23 +11,23 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class HåndværkerController : ControllerBase
+    public class HaandvaerkerController : ControllerBase
     {
         private readonly CraftManDBContext _context;
 
-        public HåndværkerController(CraftManDBContext context)
+        public HaandvaerkerController(CraftManDBContext context)
         {
             _context = context;
         }
 
-        // GET: api/Håndværker
+        // GET: api/Haandvaerker
         [HttpGet]
-        public IEnumerable<Håndværker> GetHåndværker()
+        public IEnumerable<Haandvaerker> GetHåndværker()
         {
-            return _context.Håndværker;
+            return _context.Haandvaerker;
         }
 
-        // GET: api/Håndværker/5
+        // GET: api/Haandvaerker/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetHåndværker([FromRoute] int id)
         {
@@ -36,7 +36,7 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Controllers
                 return BadRequest(ModelState);
             }
 
-            var håndværker = await _context.Håndværker.FindAsync(id);
+            var håndværker = await _context.Haandvaerker.FindAsync(id);
 
             if (håndværker == null)
             {
@@ -46,16 +46,16 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Controllers
             return Ok(håndværker);
         }
 
-        // PUT: api/Håndværker/5
+        // PUT: api/Haandvaerker/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutHåndværker([FromRoute] int id, [FromBody] Håndværker håndværker)
+        public async Task<IActionResult> PutHåndværker([FromRoute] int id, [FromBody] Haandvaerker håndværker)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != håndværker.HåndværkerId)
+            if (id != håndværker.HaandvaerkerId)
             {
                 return BadRequest();
             }
@@ -81,22 +81,22 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Controllers
             return NoContent();
         }
 
-        // POST: api/Håndværker
+        // POST: api/Haandvaerker
         [HttpPost]
-        public async Task<IActionResult> PostHåndværker([FromBody] Håndværker håndværker)
+        public async Task<IActionResult> PostHåndværker([FromBody] Haandvaerker håndværker)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.Håndværker.Add(håndværker);
+            _context.Haandvaerker.Add(håndværker);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetHåndværker", new { id = håndværker.HåndværkerId }, håndværker);
+            return CreatedAtAction("GetHåndværker", new { id = håndværker.HaandvaerkerId }, håndværker);
         }
 
-        // DELETE: api/Håndværker/5
+        // DELETE: api/Haandvaerker/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteHåndværker([FromRoute] int id)
         {
@@ -105,13 +105,13 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Controllers
                 return BadRequest(ModelState);
             }
 
-            var håndværker = await _context.Håndværker.FindAsync(id);
+            var håndværker = await _context.Haandvaerker.FindAsync(id);
             if (håndværker == null)
             {
                 return NotFound();
             }
 
-            _context.Håndværker.Remove(håndværker);
+            _context.Haandvaerker.Remove(håndværker);
             await _context.SaveChangesAsync();
 
             return Ok(håndværker);
@@ -119,7 +119,7 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Controllers
 
         private bool HåndværkerExists(int id)
         {
-            return _context.Håndværker.Any(e => e.HåndværkerId == id);
+            return _context.Haandvaerker.Any(e => e.HaandvaerkerId == id);
         }
     }
 }

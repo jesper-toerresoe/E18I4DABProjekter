@@ -9,22 +9,23 @@ using EFE18Demo4.AspNetCore.ExistingDbMigration.Models;
 
 namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Controllers
 {
-    public class HåndværkerAppController : Controller
+    public class VaerktoejskasseAppController : Controller
     {
         private readonly CraftManDBContext _context;
 
-        public HåndværkerAppController(CraftManDBContext context)
+        public VaerktoejskasseAppController(CraftManDBContext context)
         {
             _context = context;
         }
 
-        // GET: HåndværkerApp
+        // GET: VaerktoejskasseApp
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Håndværker.ToListAsync());
+            var craftManDBContext = _context.Vaerktoejskasse.Include(v => v.Haandvaerker);
+            return View(await craftManDBContext.ToListAsync());
         }
 
-        // GET: HåndværkerApp/Details/5
+        // GET: VaerktoejskasseApp/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +33,42 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Controllers
                 return NotFound();
             }
 
-            var håndværker = await _context.Håndværker
-                .FirstOrDefaultAsync(m => m.HåndværkerId == id);
-            if (håndværker == null)
+            var vaerktoejskasse = await _context.Vaerktoejskasse
+                .Include(v => v.Haandvaerker)
+                .FirstOrDefaultAsync(m => m.VkasseId == id);
+            if (vaerktoejskasse == null)
             {
                 return NotFound();
             }
 
-            return View(håndværker);
+            return View(vaerktoejskasse);
         }
 
-        // GET: HåndværkerApp/Create
+        // GET: VaerktoejskasseApp/Create
         public IActionResult Create()
         {
+            ViewData["HaandvaerkerId"] = new SelectList(_context.Haandvaerker, "HaandvaerkerId", "Efternavn");
             return View();
         }
 
-        // POST: HåndværkerApp/Create
+        // POST: VaerktoejskasseApp/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("HåndværkerId,Ansættelsedato,Efternavn,Fagområde,Fornavn")] Håndværker håndværker)
+        public async Task<IActionResult> Create([Bind("VkasseId,Vtkanskaffet,Vtkfabrikat,HaandvaerkerId,Vtkmodel,Vtkserienummer,Vtkfarve")] Vaerktoejskasse vaerktoejskasse)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(håndværker);
+                _context.Add(vaerktoejskasse);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(håndværker);
+            ViewData["HaandvaerkerId"] = new SelectList(_context.Haandvaerker, "HaandvaerkerId", "Efternavn", vaerktoejskasse.HaandvaerkerId);
+            return View(vaerktoejskasse);
         }
 
-        // GET: HåndværkerApp/Edit/5
+        // GET: VaerktoejskasseApp/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +76,23 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Controllers
                 return NotFound();
             }
 
-            var håndværker = await _context.Håndværker.FindAsync(id);
-            if (håndværker == null)
+            var vaerktoejskasse = await _context.Vaerktoejskasse.FindAsync(id);
+            if (vaerktoejskasse == null)
             {
                 return NotFound();
             }
-            return View(håndværker);
+            ViewData["HaandvaerkerId"] = new SelectList(_context.Haandvaerker, "HaandvaerkerId", "Efternavn", vaerktoejskasse.HaandvaerkerId);
+            return View(vaerktoejskasse);
         }
 
-        // POST: HåndværkerApp/Edit/5
+        // POST: VaerktoejskasseApp/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("HåndværkerId,Ansættelsedato,Efternavn,Fagområde,Fornavn")] Håndværker håndværker)
+        public async Task<IActionResult> Edit(int id, [Bind("VkasseId,Vtkanskaffet,Vtkfabrikat,HaandvaerkerId,Vtkmodel,Vtkserienummer,Vtkfarve")] Vaerktoejskasse vaerktoejskasse)
         {
-            if (id != håndværker.HåndværkerId)
+            if (id != vaerktoejskasse.VkasseId)
             {
                 return NotFound();
             }
@@ -96,12 +101,12 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Controllers
             {
                 try
                 {
-                    _context.Update(håndværker);
+                    _context.Update(vaerktoejskasse);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!HåndværkerExists(håndværker.HåndværkerId))
+                    if (!VaerktoejskasseExists(vaerktoejskasse.VkasseId))
                     {
                         return NotFound();
                     }
@@ -112,10 +117,11 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(håndværker);
+            ViewData["HaandvaerkerId"] = new SelectList(_context.Haandvaerker, "HaandvaerkerId", "Efternavn", vaerktoejskasse.HaandvaerkerId);
+            return View(vaerktoejskasse);
         }
 
-        // GET: HåndværkerApp/Delete/5
+        // GET: VaerktoejskasseApp/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,30 +129,31 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Controllers
                 return NotFound();
             }
 
-            var håndværker = await _context.Håndværker
-                .FirstOrDefaultAsync(m => m.HåndværkerId == id);
-            if (håndværker == null)
+            var vaerktoejskasse = await _context.Vaerktoejskasse
+                .Include(v => v.Haandvaerker)
+                .FirstOrDefaultAsync(m => m.VkasseId == id);
+            if (vaerktoejskasse == null)
             {
                 return NotFound();
             }
 
-            return View(håndværker);
+            return View(vaerktoejskasse);
         }
 
-        // POST: HåndværkerApp/Delete/5
+        // POST: VaerktoejskasseApp/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var håndværker = await _context.Håndværker.FindAsync(id);
-            _context.Håndværker.Remove(håndværker);
+            var vaerktoejskasse = await _context.Vaerktoejskasse.FindAsync(id);
+            _context.Vaerktoejskasse.Remove(vaerktoejskasse);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool HåndværkerExists(int id)
+        private bool VaerktoejskasseExists(int id)
         {
-            return _context.Håndværker.Any(e => e.HåndværkerId == id);
+            return _context.Vaerktoejskasse.Any(e => e.VkasseId == id);
         }
     }
 }

@@ -1,0 +1,59 @@
+﻿@model EFE18Demo4.AspNetCore.ExistingDbMigration.Models.Vaerktoej
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Vaerktoej</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="VaerktoejsId" />
+            <div class="form-group">
+                <label asp-for="Vtanskaffet" class="control-label"></label>
+                <input asp-for="Vtanskaffet" class="form-control" />
+                <span asp-validation-for="Vtanskaffet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vtfabrikat" class="control-label"></label>
+                <input asp-for="Vtfabrikat" class="form-control" />
+                <span asp-validation-for="Vtfabrikat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vtmodel" class="control-label"></label>
+                <input asp-for="Vtmodel" class="form-control" />
+                <span asp-validation-for="Vtmodel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vtserienr" class="control-label"></label>
+                <input asp-for="Vtserienr" class="form-control" />
+                <span asp-validation-for="Vtserienr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vttype" class="control-label"></label>
+                <input asp-for="Vttype" class="form-control" />
+                <span asp-validation-for="Vttype" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vtkid" class="control-label"></label>
+                <select asp-for="Vtkid" class="form-control" asp-items="ViewBag.Vtkid"></select>
+                <span asp-validation-for="Vtkid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

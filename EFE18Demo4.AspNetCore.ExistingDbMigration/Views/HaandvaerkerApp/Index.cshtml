@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EFE18Demo4.AspNetCore.ExistingDbMigration.Models.Håndværker>
+﻿@model IEnumerable<EFE18Demo4.AspNetCore.ExistingDbMigration.Models.Haandvaerker>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,13 +13,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Ansættelsedato)
+                @Html.DisplayNameFor(model => model.Ansaettelsedato)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Efternavn)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Fagområde)
+                @Html.DisplayNameFor(model => model.Fagomraade)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Fornavn)
@@ -31,21 +31,21 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Ansættelsedato)
+                @Html.DisplayFor(modelItem => item.Ansaettelsedato)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Efternavn)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Fagområde)
+                @Html.DisplayFor(modelItem => item.Fagomraade)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Fornavn)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.HåndværkerId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.HåndværkerId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.HåndværkerId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.HaandvaerkerId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.HaandvaerkerId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.HaandvaerkerId">Delete</a>
             </td>
         </tr>
 }

@@ -3,22 +3,22 @@ using System.Collections.Generic;
 
 namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Models
 {
-    public partial class Værktøjskasse
+    public partial class Vaerktoejskasse
     {
-        public Værktøjskasse()
+        public Vaerktoejskasse()
         {
-            Værktøj = new HashSet<Værktøj>();
+            Vaerktoej = new HashSet<Vaerktoej>();
         }
 
         public int VkasseId { get; set; }
         public DateTime Vtkanskaffet { get; set; }
         public string Vtkfabrikat { get; set; }
-        public int? HåndværkerId { get; set; }
+        public int? HaandvaerkerId { get; set; }
         public string Vtkmodel { get; set; }
         public string Vtkserienummer { get; set; }
         public string Vtkfarve { get; set; }
 
-        public Håndværker Håndværker { get; set; }
-        public ICollection<Værktøj> Værktøj { get; set; }
+        public Haandvaerker Haandvaerker { get; set; }
+        public ICollection<Vaerktoej> Vaerktoej { get; set; }
     }
 }
