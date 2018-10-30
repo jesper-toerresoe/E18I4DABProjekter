@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 
 namespace EFGetStarted.AspNetCore.ExistingDbMigration.Models
 {
@@ -19,17 +21,21 @@ namespace EFGetStarted.AspNetCore.ExistingDbMigration.Models
         
         public virtual DbSet<Vaerktoej> Vaerktoej { get; set; }
         public virtual DbSet<Vaerktoejskasse> Vaerktoejskasse { get; set; }
-        
-       
 
-//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//        {
+        public static readonly LoggerFactory MyLoggerFactory
+    = new LoggerFactory(new[] { new ConsoleLoggerProvider((_, __) => true, true) });
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+
+            optionsBuilder.UseLoggerFactory(MyLoggerFactory);
+
 //            if (!optionsBuilder.IsConfigured)
 //            {
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
 //                optionsBuilder.UseSqlServer("Server=(localdb)\\ProjectsV13;Database=Database4;Trusted_Connection=True;");
 //            }
-//        }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -37,7 +37,9 @@ namespace EFGetStarted.AspNetCore.ExistingDbMigration.Controllers
             }
 
             //var haandvaerker = await _context.Haandvaerker.FindAsync(id);
-            var haandvaerker = await _context.Haandvaerker.Where(b => b.HaandvaerkerId == id).Include(vtk => vtk.Vaerktoejskasse).ThenInclude(v => v.Vaerktoej).ToListAsync();
+            var haandvaerker = await _context.Haandvaerker.Where(b => b.HaandvaerkerId == id).
+                Include(vtk => vtk.Vaerktoejskasse).
+                ThenInclude(v => v.Vaerktoej).ToListAsync();
         
             if (haandvaerker == null)
             {
