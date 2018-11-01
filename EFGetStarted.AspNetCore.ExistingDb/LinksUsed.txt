@@ -10,7 +10,10 @@ https://docs.microsoft.com/da-dk/ef/core/miscellaneous/connection-strings
 //Controlling Circular references
 https://stackoverflow.com/questions/42521722/how-to-stop-self-referencing-loop-in-net-core-web-api?rq=1 
 
-
+//Enable EF Core Lazy Loading
+Install-Package Microsoft.EntityFrameworkCore.Proxies
+https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Proxies/ and
+https://docs.microsoft.com/en-us/ef/core/querying/related-data#lazy-loading
 
 //The follwing lines are Connection String uses i scaffolding-dbcontext and in a connection:
 //cmdlet: Scaffold-DbContext "Server=(localdb)\ProjectsV13;Database=CraftManDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models

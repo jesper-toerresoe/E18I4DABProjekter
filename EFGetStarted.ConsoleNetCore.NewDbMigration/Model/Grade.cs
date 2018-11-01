@@ -8,15 +8,15 @@ namespace EFGetStarted.ConsoleNetCore.NewDbMigration.Model
     {
         public Grade()
         {
-            Students = new HashSet<Student>();
-            Teachers = new HashSet<Teacher>();
+            //Students = new HashSet<Student>();
+            //Teachers = new HashSet<Teacher>();
         }
 
         public int GradeId { get; set; }
         public string GradeName { get; set; }
         public string Section { get; set; }
 
-        public ICollection<Student> Students { get; set; }    
-        public ICollection<Teacher> Teachers { get; set; }
+        public virtual ICollection<Student> Students { get; set; }    
+        public virtual ICollection<Teacher> Teachers { get; set; }
     }
 }

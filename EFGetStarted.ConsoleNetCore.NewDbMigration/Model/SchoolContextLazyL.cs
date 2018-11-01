@@ -4,8 +4,9 @@ using Microsoft.Extensions.Logging.Console;
 
 namespace EFGetStarted.ConsoleNetCore.NewDbMigration.Model
 {
-    public class SchoolContext : DbContext
+    public class SchoolContextLazyL : DbContext
     {
+        //The samme context at SchoolContext but with Lazy Loading by Proxies enabled and no Logging
         public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<StudentCourse> StudentCourses { get; set; }
@@ -14,14 +15,11 @@ namespace EFGetStarted.ConsoleNetCore.NewDbMigration.Model
         public DbSet<Grade> Grades { get; set; }
 
 
-        //public static readonly LoggerFactory MyLoggerFactory
-        //    = new LoggerFactory(new[] { new ConsoleLoggerProvider((_, __) => true, true) });
-
+      
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.
-            //UseLoggerFactory(MyLoggerFactory).
-             //UseLazyLoadingProxies().//Enabling Lazy Loading by proxies
+            UseLazyLoadingProxies().//Enabling Lazy Loading by proxies
             UseSqlServer(@"Server=(localdb)\ProjectsV13;Database=SchoolDB;Trusted_Connection=True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

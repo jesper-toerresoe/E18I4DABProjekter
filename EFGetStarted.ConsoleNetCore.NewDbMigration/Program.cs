@@ -49,7 +49,7 @@ namespace EFGetStarted.ConsoleNetCore.NewDbMigration
             //}
 
             //Eager Loading
-            var context1 = new SchoolContext();
+          var context1 = new SchoolContext();
 
             var studentWithGrade = context1.Students
                                        .Where(s => s.StudentName == "Bill")
@@ -86,6 +86,7 @@ namespace EFGetStarted.ConsoleNetCore.NewDbMigration
                                         GradeTeachers = s.Grade.Teachers //Use navigational collection properties
                                     })
                                     .FirstOrDefault();
+            
             //Explicit Loading
             using (var context5 = new SchoolContext())
             {
@@ -107,12 +108,66 @@ namespace EFGetStarted.ConsoleNetCore.NewDbMigration
                                     .FirstOrDefault<Student>();
 
                 context6.Entry(student)
-                       .Collection(s => s.StudentCourses) //Remember this the M:N object
+                       .Collection(s => s.StudentCourses) //Remember this is the M:N object
                        .Query()
-                           .Where(sc => sc.Course.CourseName == "I4DAB") //Getting name throug reference
+                           .Where(sc => sc.Course.CourseName == "I4DAB") //Getting name through reference
                            .FirstOrDefault();
-            }
+            } 
+            //Use Lazy Loading
+            using (var context7 = new SchoolContextLazyL())
+            {
 
+
+                // Display five blogs and select a blog
+                var studentlist = context7.Students.Take(5);
+                foreach (var c in studentlist)
+                    Console.WriteLine(c.StudentId + " : " + c.StudentName);
+
+                Console.WriteLine("Select a Student:");
+                Int32 studID = Convert.ToInt32(Console.ReadLine());
+
+                // Get a specified student by  id. 
+                var speclist = context7.Students.Where(c => c.StudentId == studID).FirstOrDefault();
+
+                // If lazy loading was not enabled no courses would be loaded for the student.
+                foreach (var course in speclist.StudentCourses)
+                {
+                    Console.WriteLine("CourseID: {0} Title: {1} ",
+                        course.CourseId, course.Course.CourseName);
+                }
+            }
+            //The same sequence as above but without Lazy Loading
+            using (var context8 = new SchoolContext())
+            {
+                //Test same scenario but now with lazy loading disabled
+                // Display five blogs and select a blog
+                var studentlist = context8.Students.Take(5);
+                foreach (var c in studentlist)
+                    Console.WriteLine(c.StudentId + " : " + c.StudentName);
+
+                Console.WriteLine("Select a Student:");
+                Int32 studID = Convert.ToInt32(Console.ReadLine());
+
+                // Get a specified student by contact id. 
+                var speclist = context8.Students.Where(c => c.StudentId == studID).FirstOrDefault();
+
+                
+                // Lazy loading is not enabled no posts will be loaded for the Blog,
+                // what will happen now?
+                foreach (var course in speclist.StudentCourses)
+                {
+                    Console.WriteLine("CourseID: {0} Title: {1} ",
+                        course.CourseId, course.Course.CourseName);
+                }
+
+                //Here comes "the saving angel should" have been done before "foreach"
+
+                //var x = context8.StudentCourses.Where(s => s.StudentId == speclist.StudentId)                                    
+                //                    .Include(c => c.Course)
+                //                    .ToList();
+                //This eager loading only load StudentCourse entitities, but not Course entities
+                //context8.Entry(speclist).Collection(p => p.StudentCourses).Load();
+            }
 
         }
     }
