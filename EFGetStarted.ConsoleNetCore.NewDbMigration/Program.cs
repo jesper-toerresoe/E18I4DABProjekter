@@ -18,7 +18,7 @@ namespace EFGetStarted.ConsoleNetCore.NewDbMigration
             var studentsWithSameName = context.Students.Where(s => s.StudentName == GetName())
                                               .ToList();                          //Above is method GetName called
 
-            //Doing some INSERT
+            //Doing some INSERT that is Save Context to Database
             using (context = new SchoolContext())
             {
 
@@ -69,20 +69,21 @@ namespace EFGetStarted.ConsoleNetCore.NewDbMigration
                                     .Include(s => s.StudentCourses) //Second SELECT INNER JOIN 
                                     .ToList();
 
+            //I the statement an entity second level to student is also in the result
             var context3 = new SchoolContext();
             var studentWithGradeCourseInfo = context3.Students.Where(s => s.StudentName == "Bill")
                                     .Include(s => s.Grade) 
                                     .Include(s => s.StudentCourses)
-                                    .ThenInclude(c => c.Course)
+                                    .ThenInclude(c => c.Course) //Second Level to Student use ThenInclude         
                                     .FirstOrDefault();
-            //Projection Query Gives a new object with propertise according to Project
+            //Projection Query Gives a new object with properties according to Projection
             var context4 = new SchoolContext();
 
             var stud = context4.Students.Where(s => s.StudentName == "Sørine Sørensen")
                                     .Select(s => new //Remember that Select is the Projection operator
                                     {
                                         Student = s, //A kind of "Root"
-                                        Grade = s.Grade,//Use navigational reference properties. If name in new obejct stud also is Grade just use s.Grade
+                                        Grade = s.Grade,//Use navigational reference properties. If name in new object stud also is Grade just use s.Grade
                                         GradeTeachers = s.Grade.Teachers //Use navigational collection properties
                                     })
                                     .FirstOrDefault();
