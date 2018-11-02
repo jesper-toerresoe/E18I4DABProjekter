@@ -19,37 +19,37 @@ namespace EFGetStarted.ConsoleNetCore.NewDbMigration
                                               .ToList();                          //Above is method GetName called
 
             //Doing some INSERT
-            //using (context = new SchoolContext())
-            //{
+            using (context = new SchoolContext())
+            {
 
-            //    var std = new Student() //No Scaffolding
-            //    {
-            //        StudentName = "Bill Buffalo",
-            //        GradeId =1   //Referencing by use of foregin key properties to grade ie. Grade ref is null
-            //    };
+                var std = new Student() //No Scaffolding
+                {
+                    StudentName = "Bill Buffalo "+DateTime.UtcNow,
+                    GradeId = 1   //Referencing by use of foregin key properties to grade ie. Grade ref is null
+                };
 
-            //    context.Students.Add(std);
-            //    context.SaveChanges();
+                context.Students.Add(std);
+                context.SaveChanges();
 
-            //    //No handling of Primary and Foregin Key properties
-            //    var grd = new Grade()
-            //    {
-            //        GradeName="GradGrade",
-            //        Section ="SectionSection"
-            //    };
-            //    var std1 = new Student() 
-            //    {
-            //        StudentName = "Sørine Sørensen",
-            //        Grade = grd  //Scaffold object std1 with object grd 
-            //    };
-            //    grd.Students.Add(std1); //Scaffold object grd with object std1
-            //    context.Students.Add(std1); 
-            //    context.Grades.Add(grd);
-            //    context.SaveChanges(); //And get properties with Primary and Foregin Keys updated to
-            //}
+                //No handling of Primary and Foregin Key properties
+                var grd = new Grade()
+                {
+                    GradeName = "GradGrade",
+                    Section = "SectionSection"
+                };
+                var std1 = new Student()
+                {
+                    StudentName = "Sørine Sørensen "+DateTime.UtcNow,
+                    Grade = grd  //Scaffold object std1 with object grd 
+                };
+                grd.Students.Add(std1); //Scaffold object grd with object std1
+                context.Students.Add(std1);
+                context.Grades.Add(grd);
+                context.SaveChanges(); //And get properties with Primary and Foregin Keys updated to
+            }
 
             //Eager Loading
-          var context1 = new SchoolContext();
+            var context1 = new SchoolContext();
 
             var studentWithGrade = context1.Students
                                        .Where(s => s.StudentName == "Bill")
@@ -78,7 +78,7 @@ namespace EFGetStarted.ConsoleNetCore.NewDbMigration
             //Projection Query Gives a new object with propertise according to Project
             var context4 = new SchoolContext();
 
-            var stud = context.Students.Where(s => s.StudentName == "Sørine Sørensen")
+            var stud = context4.Students.Where(s => s.StudentName == "Sørine Sørensen")
                                     .Select(s => new //Remember that Select is the Projection operator
                                     {
                                         Student = s, //A kind of "Root"
@@ -152,7 +152,7 @@ namespace EFGetStarted.ConsoleNetCore.NewDbMigration
                 var speclist = context8.Students.Where(c => c.StudentId == studID).FirstOrDefault();
 
                 
-                // Lazy loading is not enabled no posts will be loaded for the Blog,
+                // Lazy loading is not enabled no Studentscourses will be loaded for the Student,
                 // what will happen now?
                 foreach (var course in speclist.StudentCourses)
                 {
