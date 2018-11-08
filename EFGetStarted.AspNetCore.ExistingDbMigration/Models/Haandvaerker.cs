@@ -16,6 +16,7 @@ namespace EFGetStarted.AspNetCore.ExistingDbMigration.Models
         public string HVFagomraade { get; set; }
         public string HVFornavn { get; set; }
 
-        public ICollection<Vaerktoejskasse> Vaerktoejskasse { get; set; }
+        //public ICollection<Vaerktoejskasse> Vaerktoejskasse { get; set; }
+        public HashSet<Vaerktoejskasse> Vaerktoejskasse { get; set; }
     }
 }

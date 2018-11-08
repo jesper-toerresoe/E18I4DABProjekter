@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		MigrationSwagger.html = MigrationSwagger.html
 		OmControllers.html = OmControllers.html
 		Opsatningafprojektogdb.html = Opsatningafprojektogdb.html
+		Serialisering.html = Serialisering.html
 	EndProjectSection
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database2", "Database2\Database2.sqlproj", "{B8F67AE3-85EC-45FE-BCC9-5B9BD260524C}"
@@ -27,7 +28,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFE18Demo2.AspNetCore.Exist
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFE18Demo4.AspNetCore.ExistingDbMigration", "EFE18Demo4.AspNetCore.ExistingDbMigration\EFE18Demo4.AspNetCore.ExistingDbMigration.csproj", "{9D7AEE1D-9910-48FA-A5DA-A10416D7F38A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFGetStarted.ConsoleNetCore.NewDbMigration", "EFGetStarted.ConsoleNetCore.NewDbMigration\EFGetStarted.ConsoleNetCore.NewDbMigration.csproj", "{623778AF-3556-4BFE-BC59-62281906EC44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFGetStarted.ConsoleNetCore.NewDbMigration", "EFGetStarted.ConsoleNetCore.NewDbMigration\EFGetStarted.ConsoleNetCore.NewDbMigration.csproj", "{623778AF-3556-4BFE-BC59-62281906EC44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

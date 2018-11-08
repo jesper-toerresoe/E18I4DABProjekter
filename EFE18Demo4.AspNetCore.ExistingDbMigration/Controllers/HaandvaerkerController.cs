@@ -24,7 +24,7 @@ namespace EFE18Demo4.AspNetCore.ExistingDbMigration.Controllers
         [HttpGet]
         public IEnumerable<Haandvaerker> GetHåndværker()
         {
-            return _context.Haandvaerker;
+            return _context.Haandvaerker;//.Include(v =>v.Vaerktoejskasse);
         }
 
         // GET: api/Haandvaerker/5

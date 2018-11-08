@@ -10,25 +10,28 @@ using EFGetStarted.AspNetCore.ExistingDbMigration.Models;
 namespace EFGetStarted.AspNetCore.ExistingDbMigration.Controllers
 {
     [Route("api/[controller]")]
+    //[Route("api/[controller].{format}"), FormatFilter]
     [ApiController]
-    public class HaandvaerkerController : ControllerBase
+    public class HaandvaerkersController : ControllerBase
     {
         private readonly Database5Context _context;
 
-        public HaandvaerkerController(Database5Context context)
+        public HaandvaerkersController(Database5Context context)
         {
             _context = context;
         }
 
-        // GET: api/Haandvaerker
+        // GET: api/Haandvaerkers
         [HttpGet]
+        //[HttpGet("api/[controller].{format}"), FormatFilter]
+        //[HttpGet("{format}"), FormatFilter]
         public IEnumerable<Haandvaerker> GetHaandvaerker()
         {
-            //return _context.Haandvaerker;
-            return _context.Haandvaerker.Include(h => h.Vaerktoejskasse).ThenInclude(v => v.Vaerktoej);
+            var hv = _context.Haandvaerker;
+            return hv;
         }
 
-        // GET: api/Haandvaerker/5
+        // GET: api/Haandvaerkers/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetHaandvaerker([FromRoute] int id)
         {
@@ -37,11 +40,8 @@ namespace EFGetStarted.AspNetCore.ExistingDbMigration.Controllers
                 return BadRequest(ModelState);
             }
 
-            //var haandvaerker = await _context.Haandvaerker.FindAsync(id);
-            var haandvaerker = await _context.Haandvaerker.Where(b => b.HaandvaerkerId == id).
-                Include(vtk => vtk.Vaerktoejskasse).
-                ThenInclude(v => v.Vaerktoej).ToListAsync();
-        
+            var haandvaerker = await _context.Haandvaerker.FindAsync(id);
+
             if (haandvaerker == null)
             {
                 return NotFound();
@@ -50,7 +50,7 @@ namespace EFGetStarted.AspNetCore.ExistingDbMigration.Controllers
             return Ok(haandvaerker);
         }
 
-        // PUT: api/Haandvaerker/5
+        // PUT: api/Haandvaerkers/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutHaandvaerker([FromRoute] int id, [FromBody] Haandvaerker haandvaerker)
         {
@@ -85,7 +85,7 @@ namespace EFGetStarted.AspNetCore.ExistingDbMigration.Controllers
             return NoContent();
         }
 
-        // POST: api/Haandvaerker
+        // POST: api/Haandvaerkers
         [HttpPost]
         public async Task<IActionResult> PostHaandvaerker([FromBody] Haandvaerker haandvaerker)
         {
@@ -100,7 +100,7 @@ namespace EFGetStarted.AspNetCore.ExistingDbMigration.Controllers
             return CreatedAtAction("GetHaandvaerker", new { id = haandvaerker.HaandvaerkerId }, haandvaerker);
         }
 
-        // DELETE: api/Haandvaerker/5
+        // DELETE: api/Haandvaerkers/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteHaandvaerker([FromRoute] int id)
         {

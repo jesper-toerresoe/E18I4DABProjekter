@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Console;
 
@@ -18,23 +16,31 @@ namespace EFGetStarted.AspNetCore.ExistingDbMigration.Models
         }
 
         public virtual DbSet<Haandvaerker> Haandvaerker { get; set; }
-        
+
         public virtual DbSet<Vaerktoej> Vaerktoej { get; set; }
         public virtual DbSet<Vaerktoejskasse> Vaerktoejskasse { get; set; }
 
-        public static readonly LoggerFactory MyLoggerFactory
-    = new LoggerFactory(new[] { new ConsoleLoggerProvider((_, __) => true, true) });
+        public static readonly LoggerFactory SQLLoggerFactory
+               = new LoggerFactory(new[]
+                 {
+                   new ConsoleLoggerProvider((category, level)
+                    => category == DbLoggerCategory.Database.Command.Name
+                        /*&& level == LogLevel.Information*/, true)
+        });
+
+        //    public static readonly LoggerFactory MyLoggerFactory
+        //= new LoggerFactory(new[] { new ConsoleLoggerProvider((_, __) => true, true) });
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseLoggerFactory(MyLoggerFactory);
+            optionsBuilder.UseLoggerFactory(SQLLoggerFactory);
 
-//            if (!optionsBuilder.IsConfigured)
-//            {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-//                optionsBuilder.UseSqlServer("Server=(localdb)\\ProjectsV13;Database=Database4;Trusted_Connection=True;");
-//            }
+            //            if (!optionsBuilder.IsConfigured)
+            //            {
+            //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+            //                optionsBuilder.UseSqlServer("Server=(localdb)\\ProjectsV13;Database=Database4;Trusted_Connection=True;");
+            //            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -54,7 +60,7 @@ namespace EFGetStarted.AspNetCore.ExistingDbMigration.Models
                     .HasMaxLength(50);
             });
 
-            
+
             modelBuilder.Entity<Vaerktoej>(entity =>
             {
                 entity.HasKey(e => e.VTId);
@@ -95,7 +101,7 @@ namespace EFGetStarted.AspNetCore.ExistingDbMigration.Models
                     .HasConstraintName("FK_Vaerktoejskasse_ToHaandvaerker");
             });
 
-            
+
         }
     }
 }

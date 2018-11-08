@@ -19,6 +19,7 @@ namespace EFGetStarted.AspNetCore.ExistingDbMigration.Models
         public string VTKFarve { get; set; }
 
         public Haandvaerker EjesAfNavigation { get; set; }
-        public ICollection<Vaerktoej> Vaerktoej { get; set; }
+        //public ICollection<Vaerktoej> Vaerktoej { get; set; }
+        public HashSet<Vaerktoej> Vaerktoej { get; set; }
     }
 }

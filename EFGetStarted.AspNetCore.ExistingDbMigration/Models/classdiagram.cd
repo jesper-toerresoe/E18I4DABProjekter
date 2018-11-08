@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Tilføj klassediagram på ASP.NET Core projekt&#xD;&#xA;Se dette link&#xD;&#xA;https://stackoverflow.com/questions/42233831/class-diagrams-in-vs-2017/46731057#46731057   se særligt første kommentar">
+    <Position X="0.5" Y="4.288" Height="0.731" Width="7.398" />
+  </Comment>
+  <Class Name="EFGetStarted.AspNetCore.ExistingDbMigration.Models.Haandvaerker">
+    <Position X="1.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAQAAAAAAABQAAAQAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Haandvaerker.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Vaerktoejskasse" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="EFGetStarted.AspNetCore.ExistingDbMigration.Models.Vaerktoej">
+    <Position X="9" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAQAAAAAAACAAAAAAAAAgAAAJAAAAAAAAAAAEI=</HashCode>
+      <FileName>Models\Vaerktoej.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="LiggerIvtkNavigation" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EFGetStarted.AspNetCore.ExistingDbMigration.Models.Vaerktoejskasse">
+    <Position X="5.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQAAAIAAAIAIAAAAQAAAAAAAAAIAAAAAACAAAAAIEAA=</HashCode>
+      <FileName>Models\Vaerktoejskasse.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="EjesAfNavigation" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Vaerktoej" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -32,3 +32,18 @@ Install-Package Microsoft.Extensions.Logging.Console
 
 //Install EF Core in a simple Console Application In Pakage Manager
 Install-Package Microsoft.EntityFrameworkCore.SqlServer
+
+
+//Deserializing and Serializing of.NET C# doman objects to/from JSON
+https://stackoverflow.com/questions/26434738/how-do-you-really-serialize-circular-referencing-objects-with-newtonsoft-json
+https://www.newtonsoft.com/json 
+//Documentation
+https://www.newtonsoft.com/json/help/html/Introduction.htm 
+//Circular references handling when serializing
+https://www.newtonsoft.com/json/help/html/ReferenceLoopHandlingIgnore.htm
+https://www.newtonsoft.com/json/help/html/PreserveReferencesHandlingObject.htm 
+
+//Deserializing and Serializing of.NET C# doman objects to/from XML an input to get startes
+https://andrewlock.net/formatting-response-data-as-xml-or-json-based-on-the-url-in-asp-net-core/ //Using the URL path
+https://www.codeproject.com/Articles/1204319/Formatters-in-ASP-NET-Core-Web-API //Using http header
+https://stackoverflow.com/questions/50818508/xmlserializerinputformatter-is-obsolete-asp-net-core-2-1
