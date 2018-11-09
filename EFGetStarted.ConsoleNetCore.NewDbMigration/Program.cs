@@ -13,6 +13,12 @@ namespace EFGetStarted.ConsoleNetCore.NewDbMigration
         }
         static void Main(string[] args)
         {
+            //ConcurrencyCheck cc = new ConcurrencyCheck();
+            //cc.TestConcurrencyException();
+            TestEFOptimisticLocking tefl = new TestEFOptimisticLocking();
+            //tefl.OptmisticLockingReload();
+            tefl.optimisticLockingClientWins();
+            return;
             //Basic query Linq to EntiyFramework
             var context = new SchoolContext(); //Beware of debugger behavior!! May trigger reading from DB
             var studentsWithSameName = context.Students.Where(s => s.StudentName == GetName())

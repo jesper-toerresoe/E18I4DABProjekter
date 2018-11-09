@@ -23,6 +23,8 @@ namespace EFGetStarted.ConsoleNetCore.NewDbMigration.Model
         public int GradeId { get; set; }
         public virtual Grade Grade { get; set; }
         public virtual ICollection<StudentCourse> StudentCourses { get; set; }
+        [Timestamp] //Metadata to domain model used for optimsitic conccurrency control in the database
+        public byte[] RowVersion { get; set; }
 
     }
 }
