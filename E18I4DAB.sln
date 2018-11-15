@@ -30,6 +30,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFE18Demo4.AspNetCore.Exist
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFGetStarted.ConsoleNetCore.NewDbMigration", "EFGetStarted.ConsoleNetCore.NewDbMigration\EFGetStarted.ConsoleNetCore.NewDbMigration.csproj", "{623778AF-3556-4BFE-BC59-62281906EC44}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentDBGetStartede.ConsoleNet.NewDocDb", "DocumentDBGetStartede.ConsoleNet.NewDocDb\DocumentDBGetStartede.ConsoleNet.NewDocDb.csproj", "{2BDC0B31-2347-4B98-BCB1-49098BEA65AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +80,10 @@ Global
 		{623778AF-3556-4BFE-BC59-62281906EC44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{623778AF-3556-4BFE-BC59-62281906EC44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{623778AF-3556-4BFE-BC59-62281906EC44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BDC0B31-2347-4B98-BCB1-49098BEA65AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BDC0B31-2347-4B98-BCB1-49098BEA65AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BDC0B31-2347-4B98-BCB1-49098BEA65AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BDC0B31-2347-4B98-BCB1-49098BEA65AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

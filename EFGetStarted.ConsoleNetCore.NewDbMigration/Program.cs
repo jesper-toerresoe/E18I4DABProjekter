@@ -13,10 +13,10 @@ namespace EFGetStarted.ConsoleNetCore.NewDbMigration
         }
         static void Main(string[] args)
         {
-            //ConcurrencyCheck cc = new ConcurrencyCheck();
-            //cc.TestConcurrencyException();
+            ConcurrencyCheck cc = new ConcurrencyCheck();
+            cc.TestConcurrencyException();
             TestEFOptimisticLocking tefl = new TestEFOptimisticLocking();
-            //tefl.OptmisticLockingReload();
+            tefl.OptmisticLockingReload();
             tefl.optimisticLockingClientWins();
             return;
             //Basic query Linq to EntiyFramework
